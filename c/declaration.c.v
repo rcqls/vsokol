@@ -22,6 +22,7 @@ $if vroot ? {
 #flag freebsd -L/usr/local/lib -lX11 -lGL -lXcursor -lXi
 #flag windows -lgdi32
 #flag darwin -rpath @VMODROOT/imgui @VMODROOT/imgui/cimgui.dylib
+#flag linux @VMODROOT/imgui/cimgui.so
 // METAL
 $if macos {
 	#flag -DSOKOL_METAL

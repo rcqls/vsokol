@@ -7,6 +7,7 @@ import vsokol.imgui
 struct AppState {
 	pass_action         C.sg_pass_action
 	show_another_window bool
+	f   f32
 }
 
 // const (
@@ -46,7 +47,11 @@ fn frame(user_data voidptr) {
 	imgui.new_frame(sapp.width(), sapp.height(), 1)
 	// C.igText("Hello, world!")
 	state := &AppState(user_data)
-	C.igShowDemoWindow(&state.show_another_window)
+	C.igText(c"Hello, world!")
+	C.igSliderFloat(c"float", &state.f, 0.0, 1.0, c"%.3f", C.ImGuiSliderFlags_None)
+	if state.show_another_window {
+		C.igShowDemoWindow(&state.show_another_window)
+	}
 	draw()
 	gfx.begin_default_pass(&state.pass_action, sapp.width(), sapp.height())
 	sgl.draw()

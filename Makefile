@@ -1,4 +1,23 @@
+#### Platform detections and overrides:
+_SYS := $(shell uname 2>/dev/null || echo Unknown)
+_SYS := $(patsubst MSYS%,MSYS,$(_SYS))
+_SYS := $(patsubst MINGW%,MinGW,$(_SYS))
+
+DLL_EXT := so
+ifneq ($(filter $(_SYS),MSYS MinGW),)
+WIN32 := 1
+DLL_EXT := dll
+endif
+
+ifeq ($(_SYS),Linux)
+LINUX := 1
+endif
+
+ifeq ($(_SYS),Darwin)
+MAC := 1
 DLL_EXT := dylib
+endif
+
 CIMGUI:=cimgui
 IMGUI:=$(CIMGUI)/imgui
 CFLAGS:=-I. 
