@@ -4,25 +4,25 @@ pub const (
 	used_import = 1
 )
 
-$if vroot ? {
-	#flag -I @VEXEROOT/thirdparty/sokol
-	#flag -I @VEXEROOT/thirdparty/sokol/util
-} $else {
-	#flag -I @VMODROOT/thirdparty/sokol
-	#flag -I @VMODROOT/thirdparty/sokol/util
-	#flag -I @VMODROOT/thirdparty/cimgui
-}
+#flag -I @VMODROOT/thirdparty/sokol
+#flag -I @VMODROOT/thirdparty/sokol/util
+#flag -I @VMODROOT/thirdparty/cimgui
+#flag -I @VEXEROOT/thirdparty/sokol
+#flag -I @VEXEROOT/thirdparty/sokol/util
+
 #flag -DCIMGUI_DEFINE_ENUMS_AND_STRUCTS=1
 #flag -DIMGUI_DISABLE_OBSOLETE_FUNCTIONS=1
-#flag -DIMGUI_IMPL_API=
+#flag -DIMGUI_IMPL_API
 #flag -DSOKOL_IMGUI_IMPL
 #flag freebsd -I /usr/local/include
 #flag darwin -fobjc-arc
 #flag linux -lX11 -lGL -lXcursor -lXi -lpthread
 #flag freebsd -L/usr/local/lib -lX11 -lGL -lXcursor -lXi
 #flag windows -lgdi32
-#flag darwin -rpath @VMODROOT/imgui @VMODROOT/imgui/cimgui.dylib
-#flag linux @VMODROOT/imgui/cimgui.so
+
+#flag darwin -rpath @VMODROOT/lib @VMODROOT/lib/cimgui.dylib
+#flag linux -L @VMODROOT/lib -l:cimgui.so
+#flag windows @VMODROOT/lib/cimgui.dll
 // METAL
 $if macos {
 	#flag -DSOKOL_METAL
