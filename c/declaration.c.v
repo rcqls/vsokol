@@ -6,9 +6,9 @@ pub const (
 
 #flag -I @VMODROOT/thirdparty/sokol
 #flag -I @VMODROOT/thirdparty/sokol/util
-#flag -I @VMODROOT/thirdparty/cimgui
 #flag -I @VEXEROOT/thirdparty/sokol
 #flag -I @VEXEROOT/thirdparty/sokol/util
+#flag -I @VMODROOT/extra/sokol
 
 #flag -DCIMGUI_DEFINE_ENUMS_AND_STRUCTS=1
 #flag -DIMGUI_DISABLE_OBSOLETE_FUNCTIONS=1
@@ -20,9 +20,6 @@ pub const (
 #flag freebsd -L/usr/local/lib -lX11 -lGL -lXcursor -lXi
 #flag windows -lgdi32
 
-#flag darwin -rpath @VMODROOT/lib @VMODROOT/lib/cimgui.dylib
-#flag linux -L @VMODROOT/lib -l:cimgui.so
-#flag windows @VMODROOT/lib/cimgui.dll
 // METAL
 $if macos {
 	#flag -DSOKOL_METAL
@@ -63,6 +60,7 @@ $if gcboehm ? {
 
 #include "sokol_v.h"
 #include "sokol_app.h"
+#include "sokol_app_extra.h"
 #define SOKOL_IMPL
 #define SOKOL_NO_DEPRECATED
 #include "sokol_gfx.h"

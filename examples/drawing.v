@@ -3,6 +3,7 @@ import vsokol.sapp
 import vsokol.gfx
 import vsokol.sgl
 import vsokol.imgui
+import vimgui
 
 struct AppState {
 	pass_action         C.sg_pass_action
@@ -17,6 +18,7 @@ struct AppState {
 fn main() {
 	state := &AppState{
 		pass_action: gfx.create_clear_pass(0.1, 0.1, 0.1, 1.0)
+		show_another_window: true
 	}
 	title := 'Sokol Drawing Template'
 	desc := C.sapp_desc{
@@ -50,9 +52,11 @@ fn frame(user_data voidptr) {
 	C.igText(c"Hello, world!")
 	C.igSliderFloat(c"float", &state.f, 0.0, 1.0, c"%.3f", C.ImGuiSliderFlags_None)
 	if state.show_another_window {
-		C.igShowDemoWindow(&state.show_another_window)
+		// C.igShowDemoWindow(&state.show_another_window)
+		vimgui.show_demo_window(&state.show_another_window)
 	}
 	draw()
+	// imgui.render()
 	gfx.begin_default_pass(&state.pass_action, sapp.width(), sapp.height())
 	sgl.draw()
 	imgui.render()

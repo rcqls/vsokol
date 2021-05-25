@@ -36,3 +36,7 @@ pub fn handle_event(ev &C.sapp_event) bool {
 pub fn shutdown() {
 	C.simgui_shutdown()
 }
+
+// pub fn show_demo_window(open &bool) {
+// 	C.igShowDemoWindow(open)
+// }
