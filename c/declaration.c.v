@@ -1,7 +1,9 @@
 module c
 
+import vimgui
+
 pub const (
-	used_import = 1
+	used_import = 1 + vimgui.used_import
 )
 
 #flag -I @VMODROOT/thirdparty/sokol
