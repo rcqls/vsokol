@@ -66,6 +66,6 @@ fn C.sg_query_pipeline_defaults(desc &C.sg_pipeline_desc) C.sg_pipeline_desc
 fn C.sg_query_pass_defaults(desc &C.sg_pass_desc) C.sg_pass_desc
 
 // rendering contexts (optional)
-fn C.sg_setup_context() C.sg_context
-fn C.sg_activate_context(ctx_id C.sg_context)
-fn C.sg_discard_context(ctx_id C.sg_context)
+// fn C.sg_setup_context() C.sg_context
+// fn C.sg_activate_context(ctx_id C.sg_context)
+// fn C.sg_discard_context(ctx_id C.sg_context)

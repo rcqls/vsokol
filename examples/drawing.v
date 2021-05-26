@@ -27,7 +27,6 @@ fn main() {
 		frame_userdata_cb: frame
 		event_cb: input
 		window_title: title.str
-		html5_canvas_name: title.str
 	}
 	sapp.run(&desc)
 }

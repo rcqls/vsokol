@@ -75,7 +75,7 @@ fn C.sapp_metal_get_renderpass_descriptor() voidptr
 fn C.sapp_metal_get_drawable() voidptr
 
 // macOS: get ARC-bridged pointer to macOS NSWindow
-fn C.sapp_macos_get_window() voidptr
+// fn C.sapp_macos_get_window() voidptr
 
 // iOS: get ARC-bridged pointer to iOS UIWindow
 fn C.sapp_ios_get_window() voidptr

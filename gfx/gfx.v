@@ -250,17 +250,17 @@ pub fn query_pass_defaults(desc &C.sg_pass) C.sg_pass_desc {
 }
 
 // rendering contexts (optional)
-[inline]
-pub fn setup_context() C.sg_context {
-	return C.sg_setup_context()
-}
+// [inline]
+// pub fn setup_context() C.sg_context {
+// 	return C.sg_setup_context()
+// }
 
-[inline]
-pub fn activate_context(ctx_id C.sg_context) {
-	C.sg_activate_context(ctx_id)
-}
+// [inline]
+// pub fn activate_context(ctx_id C.sg_context) {
+// 	C.sg_activate_context(ctx_id)
+// }
 
-[inline]
-pub fn discard_context(ctx_id C.sg_context) {
-	C.sg_discard_context(ctx_id)
-}
+// [inline]
+// pub fn discard_context(ctx_id C.sg_context) {
+// 	C.sg_discard_context(ctx_id)
+// }

@@ -178,10 +178,10 @@ pub fn metal_get_drawable() voidptr {
 }
 
 // macOS: get ARC-bridged pointer to macOS NSWindow
-[inline]
-pub fn macos_get_window() voidptr {
-	return voidptr(C.sapp_macos_get_window())
-}
+// [inline]
+// pub fn macos_get_window() voidptr {
+// 	return voidptr(C.sapp_macos_get_window())
+// }
 
 // iOS: get ARC-bridged pointer to iOS UIWindow
 [inline]
