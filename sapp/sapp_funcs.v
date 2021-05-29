@@ -97,3 +97,114 @@ fn C.sapp_win32_get_hwnd() voidptr
 
 // Android: get native activity handle
 fn C.sapp_android_get_native_activity() voidptr
+
+// open a new window and return window handle
+fn C.sapp_open_window(desc &C.sapp_window_desc) C.sapp_window
+
+// close a window
+fn C.sapp_close_window(window C.sapp_window)
+
+// test if a window handle is valid
+fn C.sapp_window_valid(window C.sapp_window) bool
+
+// start rendering into a window
+fn C.sapp_activate_window_context(window C.sapp_window)
+
+// return an array index for a window handle (to associate your own data with window handle)
+fn C.sapp_window_slot_index(window C.sapp_window) int
+
+// get the main window handle
+fn C.sapp_main_window() C.sapp_window
+
+// start iterating over windows
+fn C.sapp_first_window() C.sapp_window
+
+// continue iterating over windows, returns invalid handle when finished
+fn C.sapp_next_window(window C.sapp_window) C.sapp_window
+
+// show a hidden window
+fn C.sapp_show_window(window C.sapp_window)
+
+// hide a visible window
+fn C.sapp_hide_window(window C.sapp_window)
+
+// return true if a window is currently visible
+fn C.sapp_window_visible(window C.sapp_window) bool
+
+// make window focused (bring to front and get keyboard input focus)
+fn C.sapp_focus_window(window C.sapp_window)
+
+// test if window is the focus window
+fn C.sapp_window_focused(window C.sapp_window) bool
+
+// test if window is minimized
+fn C.sapp_window_minimized(window C.sapp_window) bool
+
+// get window's framebuffer width in pixels
+fn C.sapp_window_width(window C.sapp_window) int
+
+// same as sapp_window_width(), but returns float
+fn C.sapp_window_widthf(window C.sapp_window) f32
+
+// get window's framebuffer height in pixels
+fn C.sapp_window_height(window C.sapp_window) int
+
+// same as sapp_window_height(), but returns float
+fn C.sapp_window_heightf(window C.sapp_window) f32
+
+// set window's client rect size in logical 'window system pixels'
+fn C.sapp_window_set_client_size(window C.sapp_window, width int, height int)
+
+// same as sapp_window_set_client_size(), but with float parameters
+fn C.sapp_window_set_client_sizef(window C.sapp_window, width f32, height f32)
+
+// get window's client rect width in logical 'window system pixels'
+fn C.sapp_window_client_width(window C.sapp_window) int
+
+// same as sapp_window_client_width() but returns float
+fn C.sapp_window_client_widthf(window C.sapp_window) f32
+
+// get window's client rect height in logical 'window system pixels'
+fn C.sapp_window_client_height(window C.sapp_window) int
+
+// same as sapp_client_height() but returns float
+fn C.sapp_window_client_heightf(window C.sapp_window) f32
+
+// set window's client rect position in logical 'window system pixels'
+fn C.sapp_window_set_client_pos(window C.sapp_window, x int, y int)
+
+// same as sapp_window_set_client_pos(), but with float parameters
+fn C.sapp_window_set_client_posf(window C.sapp_window, x f32, y f32)
+
+// get window's client rect horizontal position in logical 'window system pixels'
+fn C.sapp_window_client_posx(window C.sapp_window) int
+
+// same as sapp_window_client_posx(), but returns float
+fn C.sapp_window_client_posxf(window C.sapp_window) f32
+
+// get window's client rect vertical position in logical 'window system pixels'
+fn C.sapp_window_client_posy(window C.sapp_window) int
+
+// same as sapp_window_client_posy(), but returns float
+fn C.sapp_window_client_posyf(window C.sapp_window) f32
+
+// get a window's sample count
+fn C.sapp_window_sample_count(window C.sapp_window) int
+
+// returns true when high_dpi was requested for a window, and actually running in a high-dpi scenario
+fn C.sapp_window_high_dpi(window C.sapp_window) bool
+
+// returns a window's dpi scaling factor (window pixels to framebuffer pixels)
+fn C.sapp_window_dpi_scale(window C.sapp_window) f32
+
+// query if a window is currently in fullscreen mode
+fn C.sapp_window_is_fullscreen(window C.sapp_window) bool
+
+// toggle a window to and from fullscreen mode
+fn C.sapp_window_toggle_fullscreen(window C.sapp_window)
+
+// set window title (only on desktop platforms)
+fn C.sapp_window_set_title(window C.sapp_window, str &char)
+
+// get window userdata pointer
+fn C.sapp_window_userdata(window C.sapp_window) voidptr
